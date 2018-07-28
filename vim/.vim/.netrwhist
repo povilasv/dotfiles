@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/povilasv/gocode/src/code.uber.internal/sre/jeeves/config/uconfig'
+let g:netrw_dirhist_2='/Users/povilasv/gocode/src/code.uber.internal/sre/jeeves/config'
+let g:netrw_dirhist_3='/Users/povilasv/gocode/src/code.uber.internal/go-common.git/client/uconfig'
+let g:netrw_dirhist_4='/Users/povilasv/Uber/uber-puppet-manifests/modules/haproxy'
+let g:netrw_dirhist_5='/Users/povilasv/gocode/src/code.uber.internal/sre/neris/engine'
+let g:netrw_dirhist_6='/Users/povilasv/.virtualenvs'
+let g:netrw_dirhist_7='/Users/povilasv/Uber/vertica-operations/reimage'
+let g:netrw_dirhist_8='/home/povilasv/testvgo'

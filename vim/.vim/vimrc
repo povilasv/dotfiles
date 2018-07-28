@@ -1,0 +1,110 @@
+set rtp+=~/.fzf
+
+function! BuildComposer(info)
+  if a:info.status != 'unchanged' || a:info.force
+    if has('nvim')
+      !cargo build --release
+    else
+      !cargo build --release --no-default-features --features json-rpc
+    endif
+  endif
+endfunction
+
+call plug#begin()
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'Chiel92/vim-autoformat'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'benmills/vimux'
+Plug 'airblade/vim-gitgutter'
+call plug#end()
+
+if has('nvim')
+   " Enable deoplete on startup
+    let g:deoplete#enable_at_startup = 1
+endif
+
+syntax on               " turn syntax highlighting on by default
+filetype on             " detect type of file
+filetype indent on      " load indent file for specific file type
+set background=light
+colorscheme solarized
+filetype plugin indent on
+" show existing tab with 4 spaces width
+set tabstop=4
+"" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+set expandtab
+set hls
+set ic
+set number
+set title
+set spelllang=en_us
+set spell
+set history=100	" Default = 8
+set visualbell t_vb=    " turn off error beep/flash
+set novisualbell        " turn off visual bell
+set vb
+set backspace=indent,eol,start  " make that backspace key work the way it should
+" markdown show *
+set conceallevel=0
+set completeopt-=preview
+set nobackup noswapfile
+" vim disable ex mode
+set maxmempattern=2000000
+
+nnoremap Q <nop>
+
+" autocomplete use tab
+inoremap <silent><expr> <TAB>
+    \ pumvisible() ? "\<C-n>" :
+    \ <SID>check_back_space() ? "\<TAB>" :
+    \ deoplete#mappings#manual_complete()
+function! s:check_back_space() abort "{{{
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+endfunction"}}}
+
+cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+
+nmap <c-p> :Files<CR>
+
+"let g:autoformat_verbosemode=1
+map <c-f> :Autoformat<CR>
+
+map <C-n> :NERDTreeToggle<CR>
+
+" Arrow Keys!
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+
+" switch to insert without ESC
+imap jk <Esc>
+
+" vimux
+map <Leader>vp :VimuxPromptCommand<CR>
+map <Leader>vl :VimuxRunLastCommand<CR>
+map <Leader>vi :VimuxInspectRunner<CR>
+map <Leader>vz :VimuxZoomRunner<CR>
+map <Leader>vx :VimuxCloseRunner<CR>
+
+
+" grepping
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
+
+set nofoldenable
