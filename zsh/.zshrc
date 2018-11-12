@@ -13,6 +13,11 @@ if [ $commands[kubectl] ]; then
     source <(kubectl completion zsh | sed 's/kubectl/k/g')
 fi
 
+if [ $commands[kubeadm] ]; then
+    source <(kubeadm completion zsh)
+fi
+
+
 source $ZSH/oh-my-zsh.sh
 
 _has() {
