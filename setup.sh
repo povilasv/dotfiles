@@ -4,6 +4,7 @@ sudo apt-get install stow neovim zsh tmux silversearcher-ag xsel
 
 # ZSH
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+rm -rf ~/.zshrc ~/.zsh
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
 
@@ -24,4 +25,6 @@ sudo chsh -s /bin/zsh povilasv
 nvim +PlugUpgrade +qall
 nvim +PlugUpdate +qall
 
-# stow zsh
+stow zsh
+stow tmux
+stow vim
