@@ -28,10 +28,10 @@ endif
 
 syntax on               " turn syntax highlighting on by default
 filetype on             " detect type of file
-filetype indent on      " load indent file for specific file type
+filetype indent off      " load indent file for specific file type
 set background=light
 colorscheme solarized
-filetype plugin indent on
+filetype plugin indent off
 " show existing tab with 4 spaces width
 set tabstop=4
 "" when indenting with '>', use 4 spaces width
