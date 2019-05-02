@@ -1,10 +1,9 @@
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="maran"
 
-plugins=(git vi-mode kubectl)
+plugins=(git vi-mode kubectl zsh-completions)
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh/zsh-autosuggestions/zsh-completions.zsh
 
 bindkey -v
 
