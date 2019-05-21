@@ -32,9 +32,6 @@ _append_to_path() {
   fi
 }
 
-# TODO
-# eval `dircolors /home/povilasv/.dir_colors/dircolors`
-
 # fzf via local installation
 if [ -e ~/.fzf ]; then
   _append_to_path ~/.fzf/bin
@@ -68,25 +65,19 @@ export GOPATH=$HOME/gocode
 
 _append_to_path $GOPATH/bin
 
-alias vim="nvim"
-alias vi="nvim"
-alias v="nvim"
 
 alias gitcleanup='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
 
 # make git use neovim
-export VISUAL=nvim
+#alias vim="nvim"
+#export VISUAL=nvim
+#
+export VISUAL=vim
 export EDITOR="$VISUAL"
 #alias x='xclip -selection clipboard'
 alias x='xsel --clipboard'
 
 alias k='kubectl'
-alias kg='kubectl get'
-alias kgpo='kubectl get pod'
-alias klo='kubectl logs'
-
-alias krm='kubectl delete'
-alias krmf='kubectl delete -f'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
