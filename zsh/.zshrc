@@ -43,6 +43,7 @@ export SYSTEMD_EDITOR="/usr/bin/nvim"
 export SYSTEMD_LESS=FRXMK
 export LD_LIBRARY_PATH=/usr/local/lib:/lib/:/usr/lib
 export TERMINAL=/usr/local/bin/alacritty
+export CONTAINER_RUNTIME_ENDPOINT='unix:///run/containerd/containerd.sock'
 
 # fzf + ag configuration
 if _has fzf && _has ag; then
